@@ -28,6 +28,16 @@ $(".time-block").each(function () {
     $(this).removeclass("present");
     $(this).addclass("past");
   }
-});
+  else (blocktime === timenow) {
+    $(this).removeclass("past");
+    $(this).removeclass("future");
+    $(this).addclass("present");
+  }
+  else {
+    $(this).removeClass("present");
+    $(this).removeClass("past");
+    $(this).addClass("future");
+  }
+})
 
 // fetch data from local storage portion here
