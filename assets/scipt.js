@@ -14,7 +14,14 @@ $(document).ready(function () {
   });
 });
 // function to get the current time
+function time() {
+  var timenow = moment().hour();
+}
+
 // function to loop through timeblocks
+$(".time-block").each(function () {
+  var blocktime = parseInt($(this).attr("id").split("hour")[1]);
+});
 // function for added content to time blocks
 
 // fetch data from local storage portion here
