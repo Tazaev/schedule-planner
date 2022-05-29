@@ -21,7 +21,13 @@ function time() {
 // function to loop through timeblocks
 $(".time-block").each(function () {
   var blocktime = parseInt($(this).attr("id").split("hour")[1]);
+
+  // function for added content to time blocks
+  if (blocktime < timenow) {
+    $(this).removeclass("future");
+    $(this).removeclass("present");
+    $(this).addclass("past");
+  }
 });
-// function for added content to time blocks
 
 // fetch data from local storage portion here
