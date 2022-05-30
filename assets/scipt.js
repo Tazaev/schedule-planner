@@ -27,13 +27,12 @@ $(".time-block").each(function () {
     $(this).removeclass("future");
     $(this).removeclass("present");
     $(this).addclass("past");
-  }
-  else (blocktime === timenow) {
+    // had to add "if" to make this work
+  } else if (blocktime === timenow) {
     $(this).removeclass("past");
     $(this).removeclass("future");
     $(this).addclass("present");
-  }
-  else {
+  } else {
     $(this).removeClass("present");
     $(this).removeClass("past");
     $(this).addClass("future");
@@ -48,6 +47,6 @@ $(".time-block").each(function () {
   $("#hour15 .description").val(localStorage.getItem("hour15"));
   $("#hour16 .description").val(localStorage.getItem("hour16"));
   $("#hour17 .description").val(localStorage.getItem("hour17"));
-})
+});
 
 // fetch data from local storage portion here
