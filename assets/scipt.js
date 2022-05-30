@@ -12,30 +12,31 @@ $(document).ready(function () {
     //store saved data in local storage
     localStorage.setItem(time, text);
   });
-});
-// function to get the current time
-function time() {
-  var timenow = moment().hour();
-}
 
-// function to loop through timeblocks
-$(".time-block").each(function () {
-  var blocktime = parseInt($(this).attr("id").split("hour")[1]);
+  // function to get the current time
+  function time() {
+    var timenow = moment().hour();
 
-  // function for added content to time blocks
-  if (blocktime < timenow) {
-    $(this).removeclass("future");
-    $(this).removeclass("present");
-    $(this).addclass("past");
-    // had to add "if" to make this work
-  } else if (blocktime === timenow) {
-    $(this).removeclass("past");
-    $(this).removeclass("future");
-    $(this).addclass("present");
-  } else {
-    $(this).removeClass("present");
-    $(this).removeClass("past");
-    $(this).addClass("future");
+    // function to loop through timeblocks
+    $(".time-block").each(function () {
+      var blocktime = parseInt($(this).attr("id").split("hour")[1]);
+
+      // function for added content to time blocks
+      if (blocktime < timenow) {
+        $(this).removeclass("future");
+        $(this).removeclass("present");
+        $(this).addclass("past");
+        // had to add "if" to make this work
+      } else if (blocktime === timenow) {
+        $(this).removeclass("past");
+        $(this).removeclass("future");
+        $(this).addclass("present");
+      } else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+      }
+    });
   }
   $("#hour8 .description").val(localStorage.getItem("hour8"));
   $("#hour9 .description").val(localStorage.getItem("hour9"));
